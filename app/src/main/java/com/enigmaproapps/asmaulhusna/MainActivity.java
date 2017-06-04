@@ -1,6 +1,7 @@
 package com.enigmaproapps.asmaulhusna;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"Name clicked",Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                MainActivity.this.startActivity(intent);
             }
         });
         recyclerView.setAdapter(recyclerViewAdapter);
