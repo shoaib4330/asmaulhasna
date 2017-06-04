@@ -22,6 +22,7 @@ public final class AllahName_Dao implements IAllahNameDao {
         for (int index=0; index < listOfNames_Arabic.size(); index++)
         {
             AllahName currentName = new AllahName();
+            currentName.setNameIndex(index+1);
             currentName.setNameOfAllah(listOfNames_Arabic.get(index));
             currentName.setTranslation(listOfNames_English.get(index));
             nameListToReturn.add(currentName);

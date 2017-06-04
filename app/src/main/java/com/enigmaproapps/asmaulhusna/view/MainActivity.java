@@ -1,4 +1,4 @@
-package com.enigmaproapps.asmaulhusna;
+package com.enigmaproapps.asmaulhusna.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,20 +10,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.enigmaproapps.asmaulhusna.R;
 import com.enigmaproapps.asmaulhusna.model.AllahName;
-import com.enigmaproapps.asmaulhusna.IMainActivity_to_Presenter;
-import com.enigmaproapps.asmaulhusna.presenter.IPresenter_MainActivity;
-import com.enigmaproapps.asmaulhusna.presenter.Presenter_MainActivity;
+import com.enigmaproapps.asmaulhusna.presenter.iMainPresenter;
+import com.enigmaproapps.asmaulhusna.presenter.MainPresenter;
+import com.enigmaproapps.asmaulhusna.utilities.Utility;
 
-public class MainActivity extends AppCompatActivity implements IMainActivity_to_Presenter {
+public class MainActivity extends AppCompatActivity implements iMainView, View.OnClickListener {
 
-    private IPresenter_MainActivity mPresenter;
+    private iMainPresenter mPresenter;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
 
@@ -34,20 +35,13 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
 
         //Set the listView of GridView Whatever here.......
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_MainActivity_NamesGrid);
-        recyclerViewAdapter = new RecyclerViewAdapter(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Name clicked",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
+        recyclerViewAdapter = new RecyclerViewAdapter(this);
         recyclerView.setAdapter(recyclerViewAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
 
         if (mPresenter==null)
-            mPresenter = new Presenter_MainActivity(MainActivity.this);
+            mPresenter = new MainPresenter(MainActivity.this);
         mPresenter.onTakeView(MainActivity.this);
     }
 
@@ -57,6 +51,25 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
             Log.d("Manually Logged Error","MainActivity->populateReceivedNames: inList is NULL");
         }
         this.recyclerViewAdapter.setNamesList(inList);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId()==R.id.btn_namePlay)
+        {
+            Utility helper = new Utility();
+            View btn_parent = helper.getParent(v,R.id.rootView_name_design);
+            AllahName taggedName = (AllahName) btn_parent.getTag();
+
+            mPresenter.playName(taggedName);
+        }
+        else
+        {
+            Toast.makeText(MainActivity.this,"Name clicked",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+            MainActivity.this.startActivity(intent);
+        }
+
     }
 
 
@@ -70,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
             private View parent;
             private TextView tv_nameOfAllah;
             private TextView tv_nameTranslation;
+            private ImageButton btn_Play;
 
             public CustomViewHolder(View itemView) {
                 super(itemView);
@@ -77,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
                 parent = itemView;
                 tv_nameOfAllah = (TextView) itemView.findViewById(R.id.tv_NameInArabic);
                 tv_nameTranslation = (TextView) itemView.findViewById(R.id.tv_NameTranslationText);
+                btn_Play = (ImageButton) itemView.findViewById(R.id.btn_namePlay);
+
+                btn_Play.setOnClickListener(this);
             }
 
             public void bind(AllahName name){
@@ -87,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
 
             @Override
             public void onClick(View v) {
-                onClickListener.onClick(parent);
+                onClickListener.onClick(v);
             }
         }
 

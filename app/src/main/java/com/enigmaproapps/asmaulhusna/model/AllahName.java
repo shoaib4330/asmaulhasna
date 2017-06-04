@@ -8,7 +8,7 @@ public final class AllahName {
 
     private String nameOfAllah;
     private String translation;
-    private String namePronunciationHelperText;
+    private int nameIndex;
 
     public String getNameOfAllah() {
         return nameOfAllah;
@@ -18,12 +18,12 @@ public final class AllahName {
         this.nameOfAllah = nameOfAllah;
     }
 
-    public String getNamePronunciationHelperText() {
-        return namePronunciationHelperText;
+    public void setNameIndex(int nameIndex){
+        this.nameIndex = nameIndex;
     }
 
-    public void setNamePronunciationHelperText(String namePronunciationHelperText) {
-        this.namePronunciationHelperText = namePronunciationHelperText;
+    public int getNameIndex(){
+        return this.nameIndex;
     }
 
     public String getTranslation() {

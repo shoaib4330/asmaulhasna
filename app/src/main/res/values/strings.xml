@@ -3,6 +3,7 @@
     <string name="test_text">الرَّحْمَنُ</string>
 
     <string-array name="Allah_Name_RecordList">
+        <item>يا الله</item>
         <item>الرَّحْمَنُ</item>
         <item>الرَّحِيمُ</item>
         <item>الْمَلِكُ</item>
@@ -68,8 +69,7 @@
         <item>الْقَيُّومُ</item>
         <item>الْوَاجِدُ</item>
         <item>الْمَاجِدُ</item>
-        <item>الْواحِدُ</item>
-        <item>اَلاَحَدُ</item>
+        <item>الْواحِدُ اَلاَحَد</item>
         <item>الصَّمَدُ</item>
         <item>الْقَادِرُ</item>
         <item>الْمُقْتَدِرُ</item>
@@ -105,6 +105,7 @@
     </string-array>
 
     <string-array name="Allah_Name_TransLation_English">
+        <item>O Allah</item>
         <item>The Beneficent</item>
         <item>The Merciful</item>
         <item>The Eternal Lord</item>
@@ -170,8 +171,7 @@
         <item>The Self-Subsisting One</item>
         <item>The Pointing One</item>
         <item>The All-Noble One</item>
-        <item>The Only One</item>
-        <item>The Sole One</item>
+        <item>The Only and Sole One</item>
         <item>The Supreme Provider</item>
         <item>The Omnipotent One</item>
         <item>The All Authoritative One</item>
