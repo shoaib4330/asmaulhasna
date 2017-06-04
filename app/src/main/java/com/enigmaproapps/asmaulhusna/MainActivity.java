@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,13 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
 
         //Set the listView of GridView Whatever here.......
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_MainActivity_NamesGrid);
-        recyclerViewAdapter = new RecyclerViewAdapter();
+        recyclerViewAdapter = new RecyclerViewAdapter(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"Name clicked",Toast.LENGTH_SHORT).show();
+
+            }
+        });
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
 
@@ -47,44 +54,53 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
         if (inList==null){
             Log.d("Manually Logged Error","MainActivity->populateReceivedNames: inList is NULL");
         }
-        this.recyclerViewAdapter.updateAdapterListNotified(inList);
+        this.recyclerViewAdapter.setNamesList(inList);
     }
 
 
     private static class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.CustomViewHolder>{
 
-        //Keep child classes static in normal case, declare them otherwise only if needed ..........
-        public static class CustomViewHolder extends RecyclerView.ViewHolder{
+        View.OnClickListener onClickListener;
+        private List<AllahName> namesList;
 
-            public TextView tv_nameOfAllah;
-            public TextView tv_nameTranslation;
+        public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+            private View parent;
+            private TextView tv_nameOfAllah;
+            private TextView tv_nameTranslation;
 
             public CustomViewHolder(View itemView) {
                 super(itemView);
 
+                parent = itemView;
                 tv_nameOfAllah = (TextView) itemView.findViewById(R.id.tv_NameInArabic);
                 tv_nameTranslation = (TextView) itemView.findViewById(R.id.tv_NameTranslationText);
             }
+
+            public void bind(AllahName name){
+                tv_nameOfAllah.setText(name.getNameOfAllah());
+                tv_nameTranslation.setText(name.getTranslation());
+                parent.setTag(name);
+            }
+
+            @Override
+            public void onClick(View v) {
+                onClickListener.onClick(parent);
+            }
         }
 
-        //Adapter class starts here properly ......
-        private List<AllahName> namesList;
-        private Context mContext;
+
 
         public RecyclerViewAdapter(){
 
         }
 
-        public RecyclerViewAdapter(List<AllahName> gNamesList,Context gContext){
-            this.namesList = new ArrayList<>(gNamesList);
-            this.mContext = gContext;
+        public RecyclerViewAdapter(View.OnClickListener onClickListener){
+            this.onClickListener = onClickListener;
         }
 
-        public void updateAdapterListNotified(List<AllahName> gNameList){
-            if (this.namesList==null)
-                this.namesList=new ArrayList<>();
-            this.namesList.clear();
-            this.namesList.addAll(gNameList);
+        public void setNamesList(List<AllahName> gNamesList){
+            this.namesList= gNamesList;
             this.notifyDataSetChanged();
         }
 
@@ -103,11 +119,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity_to_
 
         @Override
         public void onBindViewHolder(RecyclerViewAdapter.CustomViewHolder holder, int position) {
-            AllahName nameAtCurrentIndex = this.namesList.get(position);
 
-            //Setting values for Views.......
-            holder.tv_nameOfAllah.setText(nameAtCurrentIndex.getNameOfAllah());
-            holder.tv_nameTranslation.setText(nameAtCurrentIndex.getTranslation());
+            holder.itemView.setOnClickListener(holder);
+            holder.bind(this.namesList.get(position));
         }
 
         @Override

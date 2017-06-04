@@ -11,5 +11,5 @@ import com.enigmaproapps.asmaulhusna.model.AllahName;
 
 public interface IPresenter_MainActivity {
     void onTakeView(IMainActivity_to_Presenter asView);
-    List<AllahName> retrieveAllahNameList(String in_langOf_NameTranslation);
+    List<AllahName> retrieveAllahNameList();
 }

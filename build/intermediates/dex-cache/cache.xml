@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_fc19c14c036a10ae1b78012fb0523dbaddf22d8d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/09c976f55c619f0e66d7e7a0c1cc604b34691181/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_be473b43f62e92b7cce79ceb884ebfa4f798aff4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/4c902fb6b8fe7fcf6855b51ba2c0787f1487f558/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5a96030be291032edbc29b65c1dc026cd9421bb7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/feb02a7c9ca1fad8aa301f01b550b1023c9ce20d/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dae04f8b8050e4ed3e7335a55ece2b98f17f458a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/8e23b2568857496142d5588b35066ad7bb1aa08f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6f40d7530c5435f46c458a064d00f0b473676ce7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/78d6a4019907156ab41ccaa18eaf6eb9a4e7a86f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a0a181bba6596e8f28b482d7019ff4049de71a0b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/dfbb38567420f2af2d61dcbe345d12e312a8def5/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7bbfef95d5ee087a775af6ce293bc4a266917656/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_5a9a5ad927fbc14c5d11ac36ce54cf2435b15959/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/3cbedefaa7e382f6392108cd496133da2c7cbb19/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4026b459e3db9604221ca05a10bc4e74800be41a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/af6a9212eb2d892ecf2bc6c37c230386be39432a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_838edd89d88007bf2b4aa3731292e5d2bfcbbb62/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/e1c79e69899cc9e8b5ab3f8639f17ccbcdadbdfb/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_52d9510ec01ef6ce568cd1aa7a1445c0ddda6843/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shoaibanwar/.android/build-cache/4579f7ea3c76a961c259c71d8ca4415c1477cdcd/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dacd6ecd5de97b39ad3cb26a3c3b28a95e4eeb30/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5ff86c4047c49c905b4d99a6287c249f93dc27e5">
+        <dex dex="/Volumes/D/Android Workspace/asmaulhasna/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_eba495cfc0b8b7e335c89e2923ff49763345144f/classes.dex" />
+    </item>
+
+</items>

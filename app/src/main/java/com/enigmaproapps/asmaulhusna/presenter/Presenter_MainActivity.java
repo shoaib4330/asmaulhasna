@@ -1,13 +1,11 @@
 package com.enigmaproapps.asmaulhusna.presenter;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import java.util.List;
 
 import com.enigmaproapps.asmaulhusna.IMainActivity_to_Presenter;
 import com.enigmaproapps.asmaulhusna.model.AllahName;
-import com.enigmaproapps.asmaulhusna.model.I_Repo_AllahNameDataRetreiver;
 import com.enigmaproapps.asmaulhusna.model.Service_AllahNameData;
 
 /**
@@ -30,16 +28,15 @@ public final class Presenter_MainActivity implements com.enigmaproapps.asmaulhus
     }
 
     private void publishNamesToView(){
-        List<AllahName> nameList = this.retrieveAllahNameList("");
+        List<AllahName> nameList = this.retrieveAllahNameList();
         if (mView!=null)
             mView.populateReceivedNames(nameList);
     }
 
     @Override
-    public List<AllahName> retrieveAllahNameList(String in_langOf_NameTranslation) {
-        Service_AllahNameData serviceAllahNameData = new Service_AllahNameData();
-        I_Repo_AllahNameDataRetreiver dataRetreiver = serviceAllahNameData.getRepository();
-        List<AllahName> nameList = dataRetreiver.retrieveAllahNameList(in_langOf_NameTranslation,context);
+    public List<AllahName> retrieveAllahNameList() {
+        Service_AllahNameData service = new Service_AllahNameData();
+        List<AllahName> nameList = service.getListOf_Names_Of_Allah(context);
         return nameList;
     }
 
