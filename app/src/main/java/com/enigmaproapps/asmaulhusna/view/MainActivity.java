@@ -2,6 +2,8 @@ package com.enigmaproapps.asmaulhusna.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -22,11 +23,14 @@ import com.enigmaproapps.asmaulhusna.presenter.iMainPresenter;
 import com.enigmaproapps.asmaulhusna.presenter.MainPresenter;
 import com.enigmaproapps.asmaulhusna.utilities.Utility;
 
-public class MainActivity extends AppCompatActivity implements iMainView, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements iMainView, View.OnClickListener{
 
     private iMainPresenter mPresenter;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
+
+    private ImageButton btn_PlayAll;
+    private ImageButton btn_SettingsActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,48 +41,83 @@ public class MainActivity extends AppCompatActivity implements iMainView, View.O
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_MainActivity_NamesGrid);
         recyclerViewAdapter = new RecyclerViewAdapter(this);
         recyclerView.setAdapter(recyclerViewAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
+        btn_PlayAll = (ImageButton) findViewById(R.id.btn_playAll);
+        btn_SettingsActivity = (ImageButton) findViewById(R.id.btn_gotoSettings);
 
-        if (mPresenter==null)
+        btn_PlayAll.setOnClickListener(this);
+        btn_SettingsActivity.setOnClickListener(this);
+
+        if (mPresenter == null)
             mPresenter = new MainPresenter(MainActivity.this);
         mPresenter.onTakeView(MainActivity.this);
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        this.mPresenter.updateNameRecyclerList();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        this.mPresenter.onStopInvocation();
+    }
+
+    @Override
+    public void setPresenterForRecycler(iMainPresenter presenter) {
+        this.recyclerViewAdapter.setPresenter(presenter);
+    }
+
+    @Override
     public void populateReceivedNames(List<AllahName> inList) {
-        if (inList==null){
-            Log.d("Manually Logged Error","MainActivity->populateReceivedNames: inList is NULL");
+        if (inList == null) {
+            Log.d("Manually Logged Error", "MainActivity->populateReceivedNames: inList is NULL");
         }
         this.recyclerViewAdapter.setNamesList(inList);
     }
 
     @Override
-    public void onClick(View v) {
-        if (v.getId()==R.id.btn_namePlay)
+    public void setAudioButtonState(boolean ifPlayOrPause, ImageButton gbtn_Play_Pause) {
+        if (ifPlayOrPause) //if played with success
         {
-            Utility helper = new Utility();
-            View btn_parent = helper.getParent(v,R.id.rootView_name_design);
-            AllahName taggedName = (AllahName) btn_parent.getTag();
-
-            mPresenter.playName(taggedName);
+            gbtn_Play_Pause.setImageResource(R.drawable.pause);
+        } else {
+            gbtn_Play_Pause.setImageResource(R.drawable.play);
         }
-        else
-        {
-            Toast.makeText(MainActivity.this,"Name clicked",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btn_namePlay) {
+
+            final View receivedView = v;
+            Utility helper = new Utility();
+            View btn_parent = helper.getParent(receivedView, R.id.rootView_name_design);
+
+            AllahName taggedName = (AllahName) btn_parent.getTag();
+            mPresenter.playName(taggedName.getNameIndex(), receivedView);
+        } else if (v.getId() == R.id.btn_playAll) {
+
+        } else if (v.getId() == R.id.btn_gotoSettings) {
+            Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
             MainActivity.this.startActivity(intent);
         }
 
     }
 
 
-    private static class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.CustomViewHolder>{
+
+    private static class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.CustomViewHolder> {
 
         View.OnClickListener onClickListener;
         private List<AllahName> namesList;
+        private iMainPresenter presenter;
 
-        public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
             private View parent;
             private TextView tv_nameOfAllah;
@@ -96,10 +135,20 @@ public class MainActivity extends AppCompatActivity implements iMainView, View.O
                 btn_Play.setOnClickListener(this);
             }
 
-            public void bind(AllahName name){
+            public void bind(AllahName name) {
                 tv_nameOfAllah.setText(name.getNameOfAllah());
                 tv_nameTranslation.setText(name.getTranslation());
                 parent.setTag(name);
+                if (!presenter.isAudioPlaying()) {
+                    btn_Play.setImageResource(R.drawable.play);
+                } else {
+                    if (presenter.getCurrentNamePlayedIndex() == name.getNameIndex()) {
+                        btn_Play.setImageResource(R.drawable.pause);
+                    }
+                    else{
+                        btn_Play.setImageResource(R.drawable.play);
+                    }
+                }
             }
 
             @Override
@@ -109,17 +158,20 @@ public class MainActivity extends AppCompatActivity implements iMainView, View.O
         }
 
 
-
-        public RecyclerViewAdapter(){
+        public RecyclerViewAdapter() {
 
         }
 
-        public RecyclerViewAdapter(View.OnClickListener onClickListener){
+        public RecyclerViewAdapter(View.OnClickListener onClickListener) {
             this.onClickListener = onClickListener;
         }
 
-        public void setNamesList(List<AllahName> gNamesList){
-            this.namesList= gNamesList;
+        public void setPresenter(iMainPresenter presenter) {
+            this.presenter = presenter;
+        }
+
+        public void setNamesList(List<AllahName> gNamesList) {
+            this.namesList = gNamesList;
             this.notifyDataSetChanged();
         }
 
@@ -128,12 +180,11 @@ public class MainActivity extends AppCompatActivity implements iMainView, View.O
             Context context = parent.getContext();
             LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-            View gridViewSingleComp = layoutInflater.inflate(R.layout.name_design_grid,parent,false);
+            View gridViewSingleComp = layoutInflater.inflate(R.layout.name_design_grid, parent, false);
             RecyclerViewAdapter.CustomViewHolder customViewHolder = new CustomViewHolder(gridViewSingleComp);
 
             return customViewHolder;
         }
-
 
 
         @Override

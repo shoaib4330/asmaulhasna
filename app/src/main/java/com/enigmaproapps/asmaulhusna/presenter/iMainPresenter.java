@@ -1,5 +1,7 @@
 package com.enigmaproapps.asmaulhusna.presenter;
 
+import android.view.View;
+
 import java.util.List;
 
 import com.enigmaproapps.asmaulhusna.view.iMainView;
@@ -11,6 +13,10 @@ import com.enigmaproapps.asmaulhusna.model.AllahName;
 
 public interface iMainPresenter {
     void onTakeView(iMainView asView);
+    void onStopInvocation();
     List<AllahName> retrieveAllahNameList();
-    void playName (AllahName name);
+    void playName (int name,View btn_Play_Pause);
+    int getCurrentNamePlayedIndex();
+    boolean isAudioPlaying();
+    void updateNameRecyclerList();
 }

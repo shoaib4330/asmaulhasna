@@ -2,6 +2,8 @@
     <string name="app_name">Asma-ul-Husna</string>
     <string name="test_text">الرَّحْمَنُ</string>
 
+    <string name="preference_file_key">prefsFileA</string>
+
     <string-array name="Allah_Name_RecordList">
         <item>يا الله</item>
         <item>الرَّحْمَنُ</item>
@@ -204,6 +206,108 @@
         <item>The Eternal Inheritor</item>
         <item>The Guide to Path of Rectitude</item>
         <item>The Extensively Enduring One</item>
+    </string-array>
+
+    <string-array name="Allah_Name_TransLation_Urdu">
+        <item>يا الل</item>
+        <item>بہت مہربان</item>
+        <item>نہایت رحم والا</item>
+        <item>بادشاہ</item>
+        <item>پاک ذات</item>
+        <item>سلامتی والا</item>
+        <item>امن دینے والا</item>
+        <item>نگرانی کرنے والا</item>
+        <item>غالب</item>
+        <item>زبردست</item>
+        <item>بڑائی والا</item>
+        <item>بنانے والا</item>
+        <item>پیدا کرنے وا</item>
+        <item>صورتیں بنانے والا</item>
+        <item>بخشنے والا</item>
+        <item>دباءو والا</item>
+        <item>سب کچھ عطا کرنے والا</item>
+        <item>روزی دینے والا</item>
+        <item>کھولنے والا</item>
+        <item>جاننے والا</item>
+        <item>تنگ کرنے والا</item>
+        <item>کشادہ کرنے والا</item>
+        <item>پست کرنے والا</item>
+        <item>بلند کرنے والا</item>
+        <item>عزت دینے والا</item>
+        <item>ذلیل کرنے والا</item>
+        <item>خوب سننے والا</item>
+        <item>خوب دیکھنے والا</item>
+        <item>فیصلہ کرنے والا</item>
+        <item>انصاف کرنے والا</item>
+        <item> مہربان</item>
+        <item>خبر رکھنے والا</item>
+        <item>بردبار</item>
+        <item>بہت عظمت والا</item>
+        <item>خوب بخش دینے والا</item>
+        <item>قدر دان</item>
+        <item>بلندی والا</item>
+        <item>بہت بڑا</item>
+        <item>حفاظت کرنے والا</item>
+        <item>روزی پہنچانے والا</item>
+        <item>کفایت کرنے والا</item>
+        <item>بزرگی والا</item>
+        <item>عزت والا</item>
+        <item>نگہبان</item>
+        <item>قبول کرنے والا</item>
+        <item>کشائش والا</item>
+        <item>حکمت والا</item>
+        <item>محبت کرنے والا</item>
+        <item>بڑی شان والا</item>
+        <item>اُٹھانے والا</item>
+        <item>حاضر</item>
+        <item>سچا مالک</item>
+        <item>کام بنانے والا</item>
+        <item>زور آور</item>
+        <item>قوت والا</item>
+        <item>حمایت کرنے والا</item>
+        <item>خوبیوں والا</item>
+        <item>گننے والا</item>
+        <item>پہلی بار پیدا کرنے والا</item>
+        <item>دوبارہ پیدا کرنے والا</item>
+        <item>زندہ کرنے والا</item>
+        <item>مارنے والا</item>
+        <item>زندہ</item>
+        <item>سب کا تھامنے والا</item>
+        <item>پانے والا</item>
+        <item>عزت والا</item>
+        <item>اکیلا</item>
+        <item>بے نیاز</item>
+        <item>قدرت والا</item>
+        <item>مقدور والا</item>
+        <item>آگے کرنے والا</item>
+        <item>پیچھے کرنے وا</item>
+        <item>سب سے پہلے</item>
+        <item>سب سے آخر</item>
+        <item>ظاہر</item>
+        <item>پوشیدہ</item>
+        <item>مالک</item>
+        <item>بلند صفتوں والا</item>
+        <item>احسان کرنے والا</item>
+        <item>توبہ قبول کرنے والا</item>
+        <item>بدلہ لینے والا</item>
+        <item>معاف کرنے والا</item>
+        <item>نرمی کرنے والا</item>
+        <item>بادشاہی کا مالک</item>
+        <item>جلال والا </item>
+        <item>انصاف کرنے والا</item>
+        <item>اکھٹا کرنے والا</item>
+        <item>بے پرو</item>
+        <item>بے پروا کرنے والا</item>
+        <item>روکنے والا</item>
+        <item>نقصان پہنچانے والا</item>
+        <item>نفع پہنچانے والا</item>
+        <item>روشن کرنے والا</item>
+        <item>ہدایت دینے والا</item>
+        <item>نئی طرح پیدا کرنے والا</item>
+        <item>پاقی رہنے والا</item>
+        <item>سب کا وارث</item>
+        <item>نیک راہ بتانے والا</item>
+        <item>صبر کرنے والا</item>
     </string-array>
 
 </resources>
